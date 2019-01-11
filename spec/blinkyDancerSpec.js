@@ -76,7 +76,7 @@ describe('shapeShifterDancer', function() {
     it('should be an instance of dancer', function() {
       expect(shapeShifterDancer).to.be.an.instanceof(Dancer)
   })
-    it('should have a step function that changes the dancers color', function() {
+    it('should have a step function that changes the dancers size', function() {
       sinon.spy(shapeShifterDancer.$node, 'toggle');
       shapeShifterDancer.step();
     expect(shapeShifterDancer.$node.toggle.called).to.be.true;
