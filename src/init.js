@@ -16,18 +16,28 @@ $(document).ready(function() {
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    //added data infront of dancer
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
 
-    var dancer = dancerMakerFunction(
+    var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+
+  $('.lineup').on('click', function(){
+    for(let i = 0; i < window.dancers.length; i++){
+      window.dancers[i.toString()].setPosition(100, $("body").width() * Math.random())
+      console.log(window.dancers[i.toString()], 'after for loop');
+    }
+  })
+
 });
 
